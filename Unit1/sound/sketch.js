@@ -17,9 +17,9 @@ function draw() {
 
 function mouseReleased() {
   if(s1.isPlaying()) {
-    summer.pause();
+    s1.pause();
   } else {
-    summer.play();
+    s1.play();
   }
 }
 
