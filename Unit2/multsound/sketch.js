@@ -15,24 +15,28 @@ function draw() {
   background(100); // Sets the background to 100
   switch (state) {
     case 0:
+      background("black"); // Sets the background color to black
       text('Please click to jam', width/2, height/2); // Displays prompt
       text("0", 100, 100) // Displays text for case 0
     case 1:
       if (!s1.isPlaying()) {
         s1.play(); // Plays the first song
       }
+      background("red"); // Sets the background color to red
       text("1", 100, 100); // Displays text for case 1
       break;
     case 2:
       if (!s2.isPlaying()) {
         s2.play(); // Plays the second song
       }
+      background("yellow"); // Sets the background color to yellow
       text("2", 100, 100); // Displays text for case 2
       break;
     case 3:
       if (!s3.isPlaying()) {
         s3.play(); // Plays the third song
       }
+      background("green"); // Sets the background color to green
       text("3", 100, 100); // Displays text for case 3
       break;
   }
