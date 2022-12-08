@@ -6,8 +6,8 @@ var num;
 var distance;
 var places = [];
 var images = [];
-var state = 4;
-var catsCollected = 6;
+var state = 0;
+var catsCollected = 0;
 
 function preload() {
   locationData = getCurrentPosition();
