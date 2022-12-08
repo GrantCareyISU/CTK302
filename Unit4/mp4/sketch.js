@@ -114,6 +114,9 @@ function touchStarted() {
     case 1:
       state = 2; // Moves to Clues
       break;
+    case 2:
+      state = 2; // Redundent, but whatever
+      break;
     case 3:
       if(catsCollected > 5) {
         state = 9; // Moves to Win
