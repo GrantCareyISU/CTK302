@@ -8,6 +8,7 @@ var places = [];
 var images = [];
 var state = 0;
 var catsCollected = 0;
+var timer = 3;
 
 function preload() {
   locationData = getCurrentPosition();
@@ -42,36 +43,54 @@ function draw() {
       break;
     case 1: // RULES
       background(images[1]);
+      timer = 3;
+      timer--;
       break;
     case 2: // CLUES
       background(images[2]);
+      timer = 3;
+      timer--;
       break;
     case 3: // Max
       background(images[3]);
+      timer = 3;
+      timer--;
       catsCollected++;
       break;
     case 4: // Fancypants
       background(images[4]);
+      timer = 3;
+      timer--;
       catsCollected++;
       break;
     case 5: // Lucy
       background(images[5]);
+      timer = 3;
+      timer--;
       catsCollected++;
       break;
     case 6: // Luna
       background(images[6]);
+      timer = 3;
+      timer--;
       catsCollected++;
       break;
     case 7: // Floof
       background(images[7]);
+      timer = 3;
+      timer--;
       catsCollected++;
       break;
     case 8: // Grumps
       background(images[8]);
+      timer = 3;
+      timer--;
       catsCollected++;
       break;
     case 9: // WIN
       background(images[9]);
+      timer = 3;
+      timer--;
       break;
   }
 }
@@ -107,56 +126,74 @@ function Place(lat, long, desc, radius) {
 function touchStarted() {
   switch(state) {
     case 0:
-      state = 1; // Moves to Rules
-      break;
+      if(timer <= 0) {
+        state = 1; // Moves to Rules
+        break;
+      }
     case 1:
-      state = 2; // Moves to Clues
-      break;
+      if(timer <= 0) {
+        state = 2; // Moves to Clues
+        break;
+      }
     case 3:
-      if(catsCollected > 5) {
-        state = 9; // Moves to Win
-      } else {
-        state = 2; // Returns to Clues
+      if(timer <= 0) {
+        if(catsCollected > 5) {
+          state = 9; // Moves to Win
+        } else {
+          state = 2; // Returns to Clues
+        }
+        break;
       }
-      break;
     case 4:
-      if(catsCollected > 5) {
-        state = 9; // Moves to Win
-      } else {
-        state = 2; // Returns to Clues
+      if(timer <= 0) {
+        if(catsCollected > 5) {
+          state = 9; // Moves to Win
+        } else {
+          state = 2; // Returns to Clues
+        }
+        break;
       }
-      break;
     case 5:
-      if(catsCollected > 5) {
-        state = 9; // Moves to Win
-      } else {
-        state = 2; // Returns to Clues
+      if(timer <= 0) {
+        if(catsCollected > 5) {
+          state = 9; // Moves to Win
+        } else {
+          state = 2; // Returns to Clues
+        }
+        break;
       }
-      break;
     case 6:
-      if(catsCollected > 5) {
-        state = 9; // Moves to Win
-      } else {
-        state = 2; // Returns to Clues
+      if(timer <= 0) {
+        if(catsCollected > 5) {
+          state = 9; // Moves to Win
+        } else {
+          state = 2; // Returns to Clues
+        }
+        break;
       }
-      break;
     case 7:
-      if(catsCollected > 5) {
-        state = 9; // Moves to Win
-      } else {
-        state = 2; // Returns to Clues
+      if(timer <= 0) {
+        if(catsCollected > 5) {
+          state = 9; // Moves to Win
+        } else {
+          state = 2; // Returns to Clues
+        }
+        break;
       }
-      break;
     case 8:
-      if(catsCollected > 5) {
-        state = 9; // Moves to Win
-      } else {
-        state = 2; // Returns to Clues
+      if(timer <= 0) {
+        if(catsCollected > 5) {
+          state = 9; // Moves to Win
+        } else {
+          state = 2; // Returns to Clues
+        }
+        break;
       }
-      break;
     case 9:
-      state = 0; // Returns to Title
-      catsCollected = 0;
-      break;
+      if(timer <= 0) {
+        state = 0; // Returns to Title
+        catsCollected = 0;
+        break;
+      }
   }
 }
