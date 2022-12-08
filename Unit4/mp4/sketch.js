@@ -8,6 +8,7 @@ var places = [];
 var images = [];
 var state = 0;
 var catsCollected = 0;
+var canvasVariable;
 
 function preload() {
   locationData = getCurrentPosition();
@@ -24,7 +25,8 @@ function setup() {
   images[7] = loadImage('assets/cat5.png');
   images[8] = loadImage('assets/cat6.png');
   images[9] = loadImage('assets/catWin.png');
-  createCanvas(displayWidth, displayHeight);
+  canvasVariable = createCanvas(displayWidth, displayHeight);
+  canvasVariable.touchStarted();
   num = 0;
   intervalCurrentPosition(positionPing, 5000);
   places.push(new Place(40.50985450, -88.98914693, "Julian Hall 064", .02)); // Starting area in Julian
